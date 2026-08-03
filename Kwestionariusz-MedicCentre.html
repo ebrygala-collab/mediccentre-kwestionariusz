@@ -359,24 +359,6 @@
         <option value="Pozostałe">Pozostałe</option>
       </select>
 
-      <label class="req">Poziom / szczebel</label>
-      <select name="poziom" required>
-        <option value="">— wybierz —</option>
-        <option value="Stażysta">Stażysta</option>
-        <option value="Praktykant">Praktykant</option>
-        <option value="Młodszy specjalista">Młodszy specjalista</option>
-        <option value="Specjalista">Specjalista</option>
-        <option value="Starszy specjalista">Starszy specjalista</option>
-        <option value="Ekspert">Ekspert</option>
-        <option value="Koordynator">Koordynator</option>
-        <option value="Kierownik / Manager">Kierownik / Manager</option>
-        <option value="Dyrektor">Dyrektor</option>
-        <option value="Prezes / Członek Zarządu">Prezes / Członek Zarządu</option>
-      </select>
-
-      <label class="req">Stanowisko (dokładna nazwa)</label>
-      <input type="text" name="stanowisko" required placeholder="np. Specjalista ds. kadr i płac">
-
       <div class="row">
         <div><label class="req">Data zatrudnienia</label><input type="date" name="dataZatrudnienia" id="dataZatrudnienia" required><div class="hint">Domyślnie dzisiejsza data (data wypełnienia kwestionariusza) — zmień, jeśli zatrudnienie zaczyna się innego dnia.</div></div>
       </div>
@@ -2211,8 +2193,6 @@ function buildQuestionnairePdf(data) {
   W.sectionTitle('Dane zatrudnienia');
   W.kv('Rodzaj umowy', _umowa(data.rodzajUmowy));
   W.kv('Dział', data.dzial);
-  if (_val(data.poziom) !== '—') W.kv('Poziom / szczebel', data.poziom);
-  if (_val(data.stanowisko) !== '—') W.kv('Stanowisko', data.stanowisko);
   W.kv('Data zatrudnienia', _data(data.dataZatrudnienia));
   if (data.rodzajUmowy === 'umowa_zlecenie') {
     W.kv('Dobrowolne ubezp. chorobowe', _tak(data.chorobowyDobrowolny));
